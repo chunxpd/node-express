@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+    <head>
+
+        <body>
+            <h1 id="sound">ss</h1>
+            <input id="name" type="text">
+            <button onclick="getSound()">API요청</button>
+            <script>
+                function getSound(){
+                    const name = document.getElementById('name').value;
+                    fetch(`http://localhost:3000/sound/${name}`)
+                    .then((response)=> response.json())
+                    .then((data) =>{
+                        console.log(data)
+                        document.getElementById('sound').innerHTML = data.sound
+                    });
+                }
+            </script>
+
+            
+        </body>
+    </head>
+</html>
